@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>portfolieo</title>
+</head>
+<body>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: #181818;
+    background: #f5f1ea;
+    line-height: 1.6;
+}
+
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background: rgba(245, 241, 234, 0.92);
+    backdrop-filter: blur(12px);
+
+    border-bottom: 1px solid #ded8cf;
+}
+
+.navbar {
+    max-width: 1150px;
+    margin: auto;
+    padding: 20px 25px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 700;
+    color: #181818;
+}
+
+.logo span {
+    color: #e86a4a;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #5f5a54;
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #e86a4a;
+}
+
+
+
+.hero {
+    min-height: 92vh;
+    max-width: 1150px;
+    margin: auto;
+
+    padding: 90px 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 80px;
+}
+
+.hero-text {
+    max-width: 650px;
+}
+
+.small-title {
+    color: #e86a4a;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 14px;
+}
+
+.hero h1 {
+    font-size: 70px;
+    line-height: 1.05;
+    color: #181818;
+    margin-bottom: 12px;
+    letter-spacing: -2px;
+}
+
+.hero h2 {
+    font-size: 25px;
+    font-weight: 500;
+    color: #e86a4a;
+    margin-bottom: 20px;
+}
+
+.hero-text > p:not(.small-title) {
+    color: #6b665f;
+    font-size: 16px;
+    max-width: 580px;
+}
+
+.hero-buttons {
+    margin-top: 30px;
+    display: flex;
+    gap: 14px;
+}
+
+.btn {
+    text-decoration: none;
+    padding: 13px 25px;
+    border-radius: 6px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+.primary-btn {
+    color: white;
+    background: #181818;
+}
+
+.primary-btn:hover {
+    background: #e86a4a;
+    transform: translateY(-2px);
+}
+
+.secondary-btn {
+    color: #181818;
+    border: 1px solid #cfc8be;
+    background: transparent;
+}
+
+.secondary-btn:hover {
+    border-color: #e86a4a;
+    color: #e86a4a;
+}
+
+
+
+.hero-card {
+    width: 310px;
+    min-height: 350px;
+
+    padding: 40px 25px;
+
+    border-radius: 20px;
+    text-align: center;
+
+    background: #ffffff;
+
+    border: 1px solid #e2ddd5;
+
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle {
+    width: 145px;
+    height: 145px;
+    border-radius: 50%;
+    overflow: hidden;
+
+}
+
+.circle img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    border: none;
+    border-radius: 50%;
+}
+
+.hero-card h3 {
+    color: #181818;
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+.hero-card p {
+    color: #77716a;
+    font-size: 13px;
+    max-width: 220px;
+}
+
+
+
+.section {
+    max-width: 1150px;
+    margin: auto;
+    padding: 100px 25px;
+}
+
+.section-title {
+    margin-bottom: 45px;
+}
+
+.section-title p {
+    color: #e86a4a;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    margin-bottom: 7px;
+}
+
+.section-title h2 {
+    color: #181818;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+}
+
+.about-text h3 {
+    color: #181818;
+    font-size: 28px;
+    margin-bottom: 18px;
+}
+
+.about-text p {
+    color: #6b665f;
+    font-size: 15px;
+    margin-bottom: 14px;
+}
+
+.about-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.info-box {
+    padding: 25px;
+    border-radius: 14px;
+
+    background: #ffffff;
+    border: 1px solid #e2ddd5;
+
+    transition: 0.3s;
+}
+
+.info-box:hover {
+    transform: translateY(-4px);
+    border-color: #e86a4a;
+}
+
+.info-box h3 {
+    color: #e86a4a;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.info-box p {
+    color: #77716a;
+    font-size: 13px;
+}
+
+
+
+.skills-section {
+    max-width: none;
+
+    padding-left: max(25px, calc((100% - 1100px) / 2));
+    padding-right: max(25px, calc((100% - 1100px) / 2));
+
+    background: #ebe5dc;
+}
+
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.skill-card {
+    padding: 28px;
+
+    border-radius: 14px;
+
+    background: #ffffff;
+    border: 1px solid #ded8cf;
+
+    transition: 0.3s;
+}
+
+.skill-card:hover {
+    transform: translateY(-6px);
+    border-color: #e86a4a;
+}
+
+.skill-icon {
+    color: #e86a4a;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.skill-card h3 {
+    color: #181818;
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+.skill-card p {
+    color: #77716a;
+    font-size: 13px;
+    margin: 4px 0;
+}
+
+
+
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.project-card {
+    padding: 32px;
+
+    border-radius: 16px;
+
+    background: #ffffff;
+    border: 1px solid #ded8cf;
+
+    transition: 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-7px);
+    border-color: #e86a4a;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+.project-number {
+    color: #e86a4a;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 22px;
+}
+
+.project-card h3 {
+    color: #181818;
+    font-size: 21px;
+    margin-bottom: 4px;
+}
+
+.project-type {
+    color: #e86a4a !important;
+    font-size: 12px !important;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.project-card > p {
+    color: #6f6a64;
+    font-size: 14px;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: 22px;
+}
+
+.tags span {
+    padding: 5px 10px;
+    border-radius: 20px;
+
+    background: #f9e3dc;
+    color: #b84f35;
+
+    font-size: 10px;
+}
+
+
+
+.experience-section {
+    max-width: none;
+
+    padding-left: max(25px, calc((100% - 1100px) / 2));
+    padding-right: max(25px, calc((100% - 1100px) / 2));
+
+    background: #ebe5dc;
+}
+
+.timeline {
+    border-left: 1px solid #cfc7bc;
+    margin-left: 8px;
+    padding-left: 35px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 38px;
+}
+
+.timeline-dot {
+    width: 11px;
+    height: 11px;
+
+    border-radius: 50%;
+
+    background: #e86a4a;
+
+    position: absolute;
+    left: -41px;
+    top: 7px;
+}
+
+.timeline-content h3 {
+    color: #181818;
+    font-size: 20px;
+}
+
+.timeline-content span {
+    color: #e86a4a;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.timeline-content p {
+    color: #6f6a64;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+
+
+.education-card {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+    padding: 30px;
+
+    border-radius: 16px;
+
+    background: #ffffff;
+    border: 1px solid #ded8cf;
+}
+
+.education-year {
+    font-size: 25px;
+    font-weight: 700;
+    color: #e86a4a;
+}
+
+.education-card h3 {
+    color: #181818;
+    font-size: 19px;
+}
+
+.education-card p {
+    color: #77716a;
+    font-size: 14px;
+}
+
+
+
+.certificates {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.certificate-card {
+    padding: 28px;
+
+    border-radius: 14px;
+
+    background: #ffffff;
+    border: 1px solid #ded8cf;
+
+    transition: 0.3s;
+}
+
+.certificate-card:hover {
+    transform: translateY(-5px);
+    border-color: #e86a4a;
+}
+
+.certificate-card h3 {
+    color: #181818;
+    font-size: 18px;
+    margin-bottom: 7px;
+}
+
+.certificate-card p {
+    color: #77716a;
+    font-size: 13px;
+}
+
+
+
+.contact-section {
+    text-align: center;
+
+    padding: 100px 25px;
+
+    color: white;
+
+    background: #181818;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-section .section-title p {
+    color: #f09a7a;
+}
+
+.contact-section .section-title h2 {
+    color: white;
+}
+
+.contact-description {
+    max-width: 550px;
+    margin: auto;
+
+    color: #c7c3bd;
+
+    font-size: 15px;
+}
+
+.contact-links {
+    margin-top: 30px;
+
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.contact-links a {
+    text-decoration: none;
+
+    color: white;
+
+    padding: 11px 22px;
+
+    border-radius: 6px;
+
+    border: 1px solid #55504a;
+
+    background: transparent;
+
+    transition: 0.3s;
+}
+
+.contact-links a:hover {
+    background: #e86a4a;
+    border-color: #e86a4a;
+    color: white;
+}
+
+
+
+footer {
+    padding: 23px;
+
+    text-align: center;
+
+    background: #111111;
+
+    color: #aaa49c;
+
+    font-size: 12px;
+}
+
+
+
+@media (max-width: 900px) {
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 70px;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-card {
+        width: 300px;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+
+    .skills-container {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .projects-container {
+        grid-template-columns: 1fr;
+    }
+
+    .certificates {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+@media (max-width: 600px) {
+
+    .navbar {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .nav-links {
+        gap: 14px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero {
+        min-height: auto;
+        padding-top: 60px;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+    }
+
+    .hero h2 {
+        font-size: 20px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .about-info {
+        grid-template-columns: 1fr;
+    }
+
+    .skills-container {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-links {
+        flex-direction: column;
+        max-width: 240px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .section-title h2 {
+        font-size: 32px;
+    }
+}
+</style>
+
+    <header>
+        <nav class="navbar">
+
+            <div class="logo">
+                <span>Nivetha</span>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+        </nav>
+    </header>
+
+
+    <section id="home" class="hero">
+
+        <div class="hero-text">
+
+            <p class="small-title">HELLO, I'M</p>
+
+            <h1>Nivetha T</h1>
+
+            <h2>M.Tech CSE Student</h2>
+
+            <p>
+                UI/UX Enthusiast & Full Stack Development Learner
+                passionate about creating useful and user-friendly
+                digital experiences.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#projects" class="btn primary-btn">
+                    View Projects
+                </a>
+
+                <a href="#contact" class="btn secondary-btn">
+                    Contact Me
+                </a>
+            </div>
+
+        </div>
+ 
+        <div class="hero-card">
+
+            <div class="circle">
+                <img src="Professional headshot with calm elegance.png" alt="Nivetha T" />
+            </div>
+
+            <h3>Nivetha T</h3>
+
+            <p>M.Tech Computer Science & Engineering</p>
+
+        </div>
+
+    </section>
+
+
+    <section id="about" class="section">
+
+        <div class="section-title">
+            <p>GET TO KNOW ME</p>
+            <h2>About Me</h2>
+        </div>
+
+        <div class="about-content">
+
+            <div class="about-text">
+
+                <h3>Building ideas into digital experiences.</h3>
+
+                <p>
+                    I am an M.Tech Computer Science and Engineering
+                    student interested in UI/UX design and full stack
+                    development.
+                </p>
+
+                <p>
+                    I enjoy designing clean user interfaces, developing
+                    web applications and learning new technologies.
+                    I am continuously improving my programming and
+                    problem-solving skills.
+                </p>
+
+                <p>
+                    My goal is to build meaningful technology solutions
+                    that are simple, useful and user-friendly.
+                </p>
+
+            </div>
+
+            <div class="about-info">
+
+                <div class="info-box">
+                    <h3>M.Tech</h3>
+                    <p>Computer Science & Engineering</p>
+                </div>
+
+                <div class="info-box">
+                    <h3>UI/UX</h3>
+                    <p>Figma & Interface Design</p>
+                </div>
+
+                <div class="info-box">
+                    <h3>Full Stack</h3>
+                    <p>Web Development</p>
+                </div>
+
+                <div class="info-box">
+                    <h3>Projects</h3>
+                    <p>3+ Academic & Personal Projects</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section id="skills" class="section skills-section">
+
+        <div class="section-title">
+            <p>WHAT I WORK WITH</p>
+            <h2>My Skills</h2>
+        </div>
+
+        <div class="skills-container">
+
+            <div class="skill-card">
+                <div class="skill-icon">01</div>
+                <h3>Programming</h3>
+                <p>Java</p>
+                <p>Python</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">02</div>
+                <h3>Web Development</h3>
+                <p>HTML</p>
+                <p>CSS</p>
+                <p>JavaScript</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">03</div>
+                <h3>UI / UX</h3>
+                <p>Figma</p>
+                <p>Wireframing</p>
+                <p>Prototyping</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">04</div>
+                <h3>Tools</h3>
+                <p>GitHub</p>
+                <p>VS Code</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section id="projects" class="section">
+
+        <div class="section-title">
+            <p>MY RECENT WORK</p>
+            <h2>Projects</h2>
+        </div>
+
+        <div class="projects-container">
+
+            <div class="project-card">
+
+                <div class="project-number">
+                    01
+                </div>
+
+                <h3>SHE SHIELD</h3>
+
+                <p class="project-type">
+                    AI-Powered Women Safety Application
+                </p>
+
+                <p>
+                    A women safety application designed to provide
+                    emergency response, SOS assistance, live location,
+                    safety navigation and trusted contact support.
+                </p>
+
+                <div class="tags">
+                    <span>Android</span>
+                    <span>Kotlin</span>
+                    <span>Firebase</span>
+                    <span>UI/UX</span>
+                </div>
+
+            </div>
+
+
+            <div class="project-card">
+
+                <div class="project-number">
+                    02
+                </div>
+
+                <h3>Voice to Sign Language</h3>
+
+                <p class="project-type">
+                    Accessibility Project
+                </p>
+
+                <p>
+                    A project concept that converts spoken language
+                    into sign language to support communication and
+                    accessibility.
+                </p>
+
+                <div class="tags">
+                    <span>AI</span>
+                    <span>Speech</span>
+                    <span>Accessibility</span>
+                </div>
+
+            </div>
+
+
+            <div class="project-card">
+
+                <div class="project-number">
+                    03
+                </div>
+
+                <h3>UI/UX Design Projects</h3>
+
+                <p class="project-type">
+                    Figma Designs
+                </p>
+
+                <p>
+                    User interface and user experience designs created
+                    using wireframes, prototypes and modern interface
+                    design principles.
+                </p>
+
+                <div class="tags">
+                    <span>Figma</span>
+                    <span>Wireframe</span>
+                    <span>Prototype</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section id="experience" class="section experience-section">
+
+        <div class="section-title">
+            <p>MY JOURNEY</p>
+            <h2>Internship Experience</h2>
+        </div>
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-content">
+
+                    <h3>Orvinor</h3>
+
+                    <span>Full Stack Development Intern</span>
+
+                    <p>
+                        Currently working on full stack development
+                        and improving practical web development skills.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-content">
+
+                    <h3>Due Dev</h3>
+
+                    <span>Full Stack Development Intern</span>
+
+                    <p>
+                        Worked with frontend and backend development,
+                        HTML, CSS, JavaScript and Git.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-content">
+
+                    <h3>Stack Queue</h3>
+
+                    <span>UI/UX Intern</span>
+
+                    <p>
+                        Created wireframes and prototypes using Figma
+                        and explored user interface design.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-content">
+
+                    <h3>Novitech</h3>
+
+                    <span>UI/UX & Full Stack Intern</span>
+
+                    <p>
+                        Worked on UI/UX designs, interface prototypes,
+                        testing and debugging activities.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="section education-section">
+
+        <div class="section-title">
+            <p>MY ACADEMIC BACKGROUND</p>
+            <h2>Education</h2>
+        </div>
+
+        <div class="education-card">
+
+            <div class="education-year">
+                M.Tech
+            </div>
+
+            <div>
+                <h3>Computer Science & Engineering</h3>
+
+                <p>
+                    Integrated M.Tech CSE
+                </p>
+
+                <p>
+                    Currently pursuing
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="section">
+
+        <div class="section-title">
+            <p>LEARNING & DEVELOPMENT</p>
+            <h2>Certifications</h2>
+        </div>
+
+        <div class="certificates">
+
+            <div class="certificate-card">
+                <h3>    Full Stack Development</h3>
+                <p>Novitech – 30 Day Master Class</p>
+            </div>
+
+            <div class="certificate-card">
+                <h3>UI/UX Design</h3>
+                <p>Novitech – 30 Day Master Class</p>
+            </div>
+
+            <div class="certificate-card">
+                <h3>UI/UX Course</h3>
+                <p>Udemy</p>
+            </div>
+
+            <div class="certificate-card">
+                <h3>Technical Learning</h3>
+                <p>Online Courses & Workshops</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section id="contact" class="contact-section">
+
+        <div class="section-title">
+
+            <p>LET'S CONNECT</p>
+
+            <h2>Contact Me</h2>
+
+        </div>
+
+        <p class="contact-description">
+            Interested in working together or discussing an opportunity?
+            Feel free to connect with me.
+        </p>
+
+        <div class="contact-links">
+
+            <a href="nivethat1408@gmail.com">
+                Email
+            </a>
+
+            <a href="https://www.linkedin.com/in/nivetha-t-3350b2284/">
+                LinkedIn
+            </a>
+
+            <a href="https://github.com/Nivetha-1408">
+                GitHub
+            </a>
+
+        </div>
+
+    </section>
+
+    <footer>
+
+        <p>
+            © 2026 Nivetha T. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+
+    
+</body>
+</html>>
